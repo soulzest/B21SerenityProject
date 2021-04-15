@@ -74,7 +74,10 @@ public class GithubTest {
 
         Ensure.that("login field value is CybertekSchool",
                                     thenSection -> thenSection.body("login",  is("CybertekSchool") )   ) ;
-
+        Ensure.that(
+                "login field value is 'Cybertek School'",
+                vRes -> vRes.body("name", is("Cybertek School"))
+        );
 
     }
 
