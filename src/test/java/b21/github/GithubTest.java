@@ -6,7 +6,8 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.*;
+//import static io.restassured.RestAssured.*;
+import static net.serenitybdd.rest.SerenityRest.* ;
 
 @SerenityTest
 public class GithubTest {
@@ -21,8 +22,7 @@ public class GithubTest {
     @Test
     public void testGitHubUser(){
 
-        given()
-                .pathParam("user_id" , "CybertekSchool")
+        given().pathParam("user_id" , "CybertekSchool")
                 .log().all().
         when()
                 .get("/users/{user_id}").

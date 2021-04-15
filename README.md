@@ -105,3 +105,9 @@ Steps to create a project
 * if you are using intelliJ buttons - first click on clean then click on verify 
 * Your Report will be generated under [target folder](./target/site/serenity/index.html) as HTML Report
  
+10. We were able to generate test report , However there are no details about the request and response. 
+    In order to see the details then we need to use the `given() when() then()` methods coming from Serenity. 
+    * Here is how : 
+      * Instead of importing restassurede given import below 
+      `import static net.serenitybdd.rest.SerenityRest.*;`
+      * From this point on , all details will be picked up serenity report
