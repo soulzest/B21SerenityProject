@@ -1,19 +1,17 @@
 package b21.spartan.user;
 
 import io.restassured.RestAssured;
-import io.restassured.http.ContentType;
 import net.serenitybdd.junit5.SerenityTest;
 import net.serenitybdd.rest.Ensure;
 import net.serenitybdd.rest.SerenityRest;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
-import spartan_util.SpartanUtil;
 
 import static net.serenitybdd.rest.SerenityRest.reset;
 
 @SerenityTest
-public class SpartanUserRoleTest {
+public class Spartans_UsersRoleTest {
 
 
     @BeforeAll
