@@ -41,6 +41,13 @@
             <version>1.6.0</version>
         </dependency>
 
+<!--        This is for serenity to pick up log and eliminate the warning -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+
     </dependencies>
 
     <build>
