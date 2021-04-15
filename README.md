@@ -108,6 +108,22 @@ Steps to create a project
 10. We were able to generate test report , However there are no details about the request and response. 
     In order to see the details then we need to use the `given() when() then()` methods coming from Serenity. 
     * Here is how : 
-      * Instead of importing restassurede given import below 
+      * Instead of importing rest assured `given` import below 
       `import static net.serenitybdd.rest.SerenityRest.*;`
       * From this point on , all details will be picked up serenity report
+
+The way that assert the Response and show it as a steps in Serenity report is by using
+`Ensure` class (from `import net.serenitybdd.rest.Ensure`)
+
+
+Ensure.that("description goes here",  validatableResponse-> validatableResponse.allThenAssertions Can go here
+
+Everytime we use one `Ensure.that` method it will become one step in the report
+```java
+Ensure.that("request ran successfully",   thenSection -> thenSection.statusCode(200)  ) ;
+Ensure.that("login field value is CybertekSchool",
+                            thenSection -> thenSection.body("login",  is("CybertekSchool") )   ) ;
+Ensure.that("name field value is 'Cybertek School'",
+                            vRes -> vRes.body("name", is("Cybertek School")) ;
+```
+    
