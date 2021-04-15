@@ -44,6 +44,17 @@ public class SpartanAdminTest {
 
     }
 
+    @DisplayName("Test public user GET /spartans endpoint")
+    @Test
+    public void testPublicUserGetSpartanData(){
+
+        SerenityRest.get("/spartans") ;
+        // ensure status code is 401
+        Ensure.that("Public user should not be able get all spartans" ,
+                                    vRes -> vRes.statusCode(401)        )  ;
+
+    }
+
 
 
     @AfterAll
