@@ -58,7 +58,13 @@ public class SpartanEditorRolePostTest {
         Ensure.that("phone is correct" ,
                 v-> v.body("data.phone" ,  is(bodyMap.get("phone")) )
         ) ;
+        // check Location header end with newly generated id
+        String newId = lastResponse().path("data.id").toString() ;
+        System.out.println(   lastResponse().header("Location")   );
 
+        Ensure.that("location header end with "+ newId ,
+                      v-> v.header("Location" , endsWith(newId)  )
+        )  ;
 
 
     }
