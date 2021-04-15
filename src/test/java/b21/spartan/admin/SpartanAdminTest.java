@@ -23,6 +23,7 @@ public class SpartanAdminTest {
 
     @DisplayName("Test Admin GET /spartans endpoint")
     @Test
+//    @Disabled
     public void testAllSpartans(){
 
         SerenityRest.given()
