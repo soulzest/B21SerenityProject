@@ -1,4 +1,5 @@
 package b21.spartan.editor;
+import io.cucumber.java.af.En;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import net.serenitybdd.junit5.SerenityTest;
@@ -42,6 +43,22 @@ public class SpartanEditorRolePostTest {
                     when()
                            .post("/spartans").prettyPeek() ;
         // Do all assertions here
+        Ensure.that("It ran successfully", thenSection-> thenSection.statusCode( equalTo(201)  ) );
+        Ensure.that("Response format is correct" , thenSection -> thenSection.contentType(ContentType.JSON) );
+
+        Ensure.that("success message is correct" , v -> v.body("success", is("A Spartan is Born!")   )       ) ;
+        Ensure.that("ID is generated and not null" , v-> v.body("data.id" , notNullValue()      ) ) ;
+        // checking actual data
+        Ensure.that("name is correct" ,
+                            v-> v.body("data.name" ,  is(bodyMap.get("name")) )
+                    ) ;
+        Ensure.that("gender is correct" ,
+                v-> v.body("data.gender" ,  is(bodyMap.get("gender")) )
+        ) ;
+        Ensure.that("phone is correct" ,
+                v-> v.body("data.phone" ,  is(bodyMap.get("phone")) )
+        ) ;
+
 
 
     }
