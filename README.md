@@ -93,3 +93,12 @@ Steps to create a project
 7. This is just a regular test , in order to make it recognized by serenity report
     * Add annotation add class level : `@SerenityTest`
     * It's coming from this import `import net.serenitybdd.junit5.SerenityTest;`
+    
+8. Add a properties file with exact name `serenity.properties` right under project level
+    * Add below two line to specify report name and test root folder
+    ```properties
+    serenity.project.name=B21 Awesome Report
+    serenity.test.root=b21
+   ```
+    
+ 
