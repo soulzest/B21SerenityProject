@@ -100,5 +100,8 @@ Steps to create a project
     serenity.project.name=B21 Awesome Report
     serenity.test.root=b21
    ```
-    
+9. In order to generate serenity report, we need use maven goal 
+* if you are using command line : `mvn clean verify`
+* if you are using intelliJ buttons - first click on clean then click on verify 
+* Your Report will be generated under [target folder](./target/site/serenity/index.html) as HTML Report
  
