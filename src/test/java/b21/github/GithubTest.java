@@ -38,10 +38,20 @@ public class GithubTest {
     public void testGitHubUser2(){
 
         SerenityRest.given()
-                .pathParam("user_id" , "CybertekSchool")
-                .log().all().
+                .pathParam("user_id" , "CybertekSchool").
+                //.log().all().
         when()
                 .get("/users/{user_id}") ;
+        // If you send request using SerenityRest , the response object
+        // can be obtained from the method called lastResponse() without being saved separately
+
+        System.out.println(    SerenityRest.lastResponse().statusCode()  );
+        System.out.println(  lastResponse().header("Date")     );
+        // print the response field login and id
+        String loginFieldValue = lastResponse().path("login") ;
+        System.out.println("loginFieldValue = " + loginFieldValue);
+
+        System.out.println(lastResponse().jsonPath().getInt("id")  ) ;
 
 
     }
