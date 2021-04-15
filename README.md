@@ -20,7 +20,7 @@ Steps to create a project
                 <artifactId>serenity-core</artifactId>
                 <version>2.4.4</version>
             </dependency>
-    <!--        this is the dependency that wrap up restassured with additional serenity support-->
+    <!--        this is the dependency that wrap up rest assured with additional serenity support-->
             <dependency>
                 <groupId>net.serenity-bdd</groupId>
                 <artifactId>serenity-rest-assured</artifactId>
@@ -55,7 +55,7 @@ Steps to create a project
                     <target>8</target>
                 </configuration>
             </plugin>
-
+            <!--            This is where the report is being generated after the test run -->
             <plugin>
                 <groupId>net.serenity-bdd.maven.plugins</groupId>
                 <artifactId>serenity-maven-plugin</artifactId>
@@ -70,7 +70,7 @@ Steps to create a project
                     </execution>
                 </executions>
             </plugin>
-
+            <!--         We want to run all the tests then generate one report -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -89,3 +89,7 @@ Steps to create a project
     
 6. Write A simple Get single user request test with RestAssured you already know.
     [This is how it looks like](src/test/java/b21/github/GithubTest.java) 
+   
+7. This is just a regular test , in order to make it recognized by serenity report
+    * Add annotation add class level : `@SerenityTest`
+    * It's coming from this import `import net.serenitybdd.junit5.SerenityTest;`

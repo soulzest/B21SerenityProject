@@ -1,13 +1,14 @@
 package b21.github;
 
 import io.restassured.RestAssured;
+import net.serenitybdd.junit5.SerenityTest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.*;
 
-
+@SerenityTest
 public class GithubTest {
 
  // SEND GET https://api.github.com/users/CybertekSchool request
