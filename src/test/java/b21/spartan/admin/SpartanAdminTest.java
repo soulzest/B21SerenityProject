@@ -36,8 +36,9 @@ public class SpartanAdminTest {
         ;
         // Ensure.that("YOUR DESCRIPTION" , yourVarName-> yourVarName.YourThenSectionAssertions ) ;
         Ensure.that("Successful 200 Response" , p -> p.statusCode(200) ) ;
-        Ensure.that("Content type is json" , vRes-> vRes.contentType(ContentType.JSON) ) ;
-
+        Ensure.that("Response Format is as expected" , vRes-> vRes.contentType(ContentType.JSON) ) ;
+        // check your json array size
+        Ensure.that("Response has correct size" ,  vRes-> vRes.body("", hasSize(473) )      ) ;
 
     }
 
