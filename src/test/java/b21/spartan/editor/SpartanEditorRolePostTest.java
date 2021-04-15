@@ -5,6 +5,10 @@ import net.serenitybdd.junit5.SerenityTest;
 import net.serenitybdd.rest.Ensure;
 import net.serenitybdd.rest.SerenityRest;
 import org.junit.jupiter.api.*;
+import spartan_util.SpartanUtil;
+
+import java.util.*;
+
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.*;
 
@@ -28,7 +32,16 @@ public class SpartanEditorRolePostTest {
     @Test
     public void testEditorPostData(){
 
+        Map<String,Object> bodyMap = SpartanUtil.getRandomSpartanMap() ;
 
+        SerenityRest.given()
+                            .auth().basic("editor","editor")
+                            .log().body()
+                            .contentType(ContentType.JSON)
+                            .body(bodyMap).
+                    when()
+                           .post("/spartans").prettyPeek() ;
+        // Do all assertions here
 
 
     }
