@@ -2,6 +2,7 @@ package b21.github;
 
 import io.restassured.RestAssured;
 import net.serenitybdd.junit5.SerenityTest;
+import net.serenitybdd.rest.Ensure;
 import net.serenitybdd.rest.SerenityRest;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.Test;
 
 //import static io.restassured.RestAssured.*;
 import static net.serenitybdd.rest.SerenityRest.* ;
+import static org.hamcrest.Matchers.*;
 
 @SerenityTest
 public class GithubTest {
@@ -55,6 +57,27 @@ public class GithubTest {
 
 
     }
+
+
+    @Test
+    public void testGitHubUser3() {
+
+        SerenityRest.given()
+                .pathParam("user_id", "CybertekSchool").
+                //.log().all().
+                        when()
+                .get("/users/{user_id}");
+    // our objective is to let each assertion show up in the report as step
+         // check status code and let it show in the report
+        // this is import import net.serenitybdd.rest.Ensure
+        Ensure.that("request ran successfully",   thenSection -> thenSection.statusCode(200)  ) ;
+
+        Ensure.that("login field value is CybertekSchool",
+                                    thenSection -> thenSection.body("login",  is("CybertekSchool") )   ) ;
+
+
+    }
+
 
 
 
