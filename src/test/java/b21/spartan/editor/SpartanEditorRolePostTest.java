@@ -6,6 +6,7 @@ import net.serenitybdd.rest.Ensure;
 import net.serenitybdd.rest.SerenityRest;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import spartan_util.SpartanUtil;
 
 import java.util.*;
@@ -70,6 +71,32 @@ public class SpartanEditorRolePostTest {
     }
 
     // TODO : Add Parameterized Test for Positive Valid Data
+    // We will need to provide name , gender , phone for each iteration
+    @ParameterizedTest
+    @CsvSource({
+            "Ercan Civi , Male , 7133306302",
+            "Muhammad , Male , 9293215645",
+            "Inci, Female, 7038142311"
+    })
+    public void testPostValidDateWithCSVSource(String nameArg, String genderArg, long phone){
+
+        System.out.println("nameArg = " + nameArg);
+        System.out.println("genderArg = " + genderArg);
+        System.out.println("phone = " + phone);
+
+        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("name" , nameArg) ;
+        bodyMap.put("gender" , genderArg) ;
+        bodyMap.put("phone" , phone) ;
+
+        System.out.println("bodyMap = " + bodyMap);
+
+
+
+    }
+
+
+
 
     // TODO : Add Parameterized Test for negative invalid Data
 
