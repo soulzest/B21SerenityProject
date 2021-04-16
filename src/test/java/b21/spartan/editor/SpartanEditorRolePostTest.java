@@ -170,6 +170,8 @@ public class SpartanEditorRolePostTest {
 
         System.out.println(ConfigReader.getProperty("serenity.project.name")  );
         System.out.println(ConfigReader.getProperty("spartan.rest.url") );
+        // try adding more into serenity.properties and replace the hard coded values
+        // like user credentials editor editor
 
     }
 
