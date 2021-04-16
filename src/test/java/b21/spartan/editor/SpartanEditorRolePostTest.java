@@ -129,6 +129,37 @@ public class SpartanEditorRolePostTest {
 
 
     // TODO : Add Parameterized Test for negative invalid Data
+    @ParameterizedTest
+    @CsvSource({
+            "E , male , 713302 , 3",
+            "Muhammad , Male , 123 , 1",
+            "Inci is from Batch 21, female, 7038142311 , 2"
+    })
+    public void testInvalidData(String nameArg, String genderArg, long phone , int expectedErrorCount) {
+
+        Map<String, Object> bodyMap = new LinkedHashMap<>();
+        bodyMap.put("name" , nameArg) ;
+        bodyMap.put("gender" , genderArg) ;
+        bodyMap.put("phone" , phone) ;
+
+        System.out.println("bodyMap = " + bodyMap);
+
+        SerenityRest.given()
+                .auth().basic("editor","editor")
+                .log().body()
+                .contentType(ContentType.JSON)
+                .body(bodyMap).
+                when()
+                .post("/spartans").prettyPeek() ;
+
+        // all iterations response status should be 400 BAD Request
+        // And error count should match the expected error count
+        // message field should report correct error count
+        // for example if you have 3 errors it should be (Validation failed for object='spartan'. Error count: 3)
+
+    }
+
+
 
 
 }
