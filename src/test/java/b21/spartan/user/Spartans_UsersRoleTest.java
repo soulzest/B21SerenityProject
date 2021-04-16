@@ -11,6 +11,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static net.serenitybdd.rest.SerenityRest.reset;
 
 @SerenityTest
+@Disabled
 public class Spartans_UsersRoleTest {
 
 

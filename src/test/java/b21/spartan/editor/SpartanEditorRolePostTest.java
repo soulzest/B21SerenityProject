@@ -15,6 +15,7 @@ import java.util.*;
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.*;
 
+@Disabled
 @SerenityTest
 public class SpartanEditorRolePostTest {
 
@@ -38,7 +39,7 @@ public class SpartanEditorRolePostTest {
         Map<String,Object> bodyMap = SpartanUtil.getRandomSpartanMap() ;
 
         SerenityRest.given()
-                            .auth().basic("editor","editor")
+                            .auth().basic(ConfigReader.getProperty("spartan.editor.username"),ConfigReader.getProperty("spartan.editor.password"))
                             .log().body()
                             .contentType(ContentType.JSON)
                             .body(bodyMap).
@@ -93,7 +94,7 @@ public class SpartanEditorRolePostTest {
         System.out.println("bodyMap = " + bodyMap);
 
         SerenityRest.given()
-                .auth().basic("editor","editor")
+                .auth().basic(ConfigReader.getProperty("spartan.editor.username"),ConfigReader.getProperty("spartan.editor.password"))
                 .log().body()
                 .contentType(ContentType.JSON)
                 .body(bodyMap).
@@ -172,6 +173,11 @@ public class SpartanEditorRolePostTest {
         System.out.println(ConfigReader.getProperty("spartan.rest.url") );
         // try adding more into serenity.properties and replace the hard coded values
         // like user credentials editor editor
+
+        System.out.println(ConfigReader.getProperty("spartan.editor.username") );
+        System.out.println(ConfigReader.getProperty("spartan.editor.password") );
+
+
 
     }
 

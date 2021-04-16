@@ -8,7 +8,7 @@ import net.serenitybdd.rest.SerenityRest;
 import org.junit.jupiter.api.*;
 import static net.serenitybdd.rest.SerenityRest.*;
 import static org.hamcrest.Matchers.*;
-
+@Disabled
 @SerenityTest
 public class SpartanAdminTest {
 
