@@ -169,6 +169,7 @@ public class SpartanEditorRolePostTest {
     public void testingOutConfigReaderTakeItAndGoUtility(){
 
         System.out.println(ConfigReader.getProperty("serenity.project.name")  );
+        System.out.println(ConfigReader.getProperty("spartan.rest.url") );
 
     }
 
