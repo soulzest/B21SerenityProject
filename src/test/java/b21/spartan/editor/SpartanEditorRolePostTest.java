@@ -157,6 +157,10 @@ public class SpartanEditorRolePostTest {
         // message field should report correct error count
         // for example if you have 3 errors it should be (Validation failed for object='spartan'. Error count: 3)
 
+        Ensure.that("Expected 400 status code" , v-> v.statusCode(400) ) ;
+        Ensure.that("Expected error count is " + expectedErrorCount  ,
+                                    v-> v.body("errors" , hasSize(expectedErrorCount)   )
+                    ) ;
     }
 
 
