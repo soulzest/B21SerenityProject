@@ -1,4 +1,5 @@
 package b21.spartan.editor;
+import config_util.ConfigReader;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import net.serenitybdd.junit5.SerenityTest;
@@ -161,6 +162,14 @@ public class SpartanEditorRolePostTest {
         Ensure.that("Expected error count is " + expectedErrorCount  ,
                                     v-> v.body("errors" , hasSize(expectedErrorCount)   )
                     ) ;
+    }
+
+
+    @Test
+    public void testingOutConfigReaderTakeItAndGoUtility(){
+
+        System.out.println(ConfigReader.getProperty("serenity.project.name")  );
+
     }
 
 
